@@ -66,57 +66,52 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         TravelResults tr = new TravelResults();
         tr.setType("Walking");
-        tr.setTime(displayTwo(populate(0)));
+        tr.setTime(populate(0));
         results.add(tr);
 
         tr = new TravelResults();
         tr.setType("Boosted Mini S Board");
-        tr.setTime(displayTwo(populate(1)));
+        tr.setTime(populate(1));
         results.add(tr);
 
         tr = new TravelResults();
         tr.setType("Evolve Skateboard");
-        tr.setTime(displayTwo(populate(2)));
+        tr.setTime(populate(2));
         results.add(tr);
 
         tr = new TravelResults();
         tr.setType("Segway i2 SE");
-        tr.setTime(displayTwo(populate(3)));
+        tr.setTime(populate(3));
         results.add(tr);
 
         tr = new TravelResults();
         tr.setType("Hovertrax Hoverboard");
-        tr.setTime(displayTwo(populate(4)));
+        tr.setTime(populate(4));
         results.add(tr);
 
         tr = new TravelResults();
         tr.setType("One Wheel");
-        tr.setTime(displayTwo(populate(5)));
+        tr.setTime(populate(5));
         results.add(tr);
 
         tr = new TravelResults();
         tr.setType("Mototec Skateboard");
-        tr.setTime(displayTwo(populate(6)));
+        tr.setTime(populate(6));
         results.add(tr);
 
         tr = new TravelResults();
         tr.setType("Segway Ninebot One S1");
-        tr.setTime(displayTwo(populate(6)));
-        results.add(tr);
-
-        tr = new TravelResults();
-        tr.setType("One Wheel");
-        tr.setTime(displayTwo(populate(7)));
+        tr.setTime(populate(7));
         results.add(tr);
 
         tr = new TravelResults();
         tr.setType("Razor Scooter");
-        tr.setTime(displayTwo(populate(8)));
+        tr.setTime(populate(8));
         results.add(tr);
 
         tr = new TravelResults();
         tr.setType("GeoBlade 500");
-        tr.setTime(displayTwo(populate(9)));
+        tr.setTime(populate(9));
         results.add(tr);
 
         return results;
@@ -246,7 +241,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    public double populate(int number) {
+    public String populate(int number) {
 
         double speed;
         switch (number) {
@@ -294,8 +289,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 speed = 0;
                 break;
         }
-        double result = (Math.round(((double) distance / speed) * 60));
-        return result;
+        long result = (Math.round((distance / speed) * 60));
+        String displayList = display(result);
+        return displayList;
     }
 
     public void onItemSelected(AdapterView<?> parent, View view,
